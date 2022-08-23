@@ -41,3 +41,15 @@ public class Solution {
     }
 }
 ```
+
+2. 또는 Solution class 안에서 문제를 해결하는 함수를 제출한다.
+
+```java
+public class Solution {
+    public long[] solution(int x, int y) {
+      long[] arr = new long[0];
+      //...
+      return arr; 
+    }
+}
+```

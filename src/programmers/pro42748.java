@@ -18,6 +18,7 @@ public class pro42748 {
         int[][] command = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 
         System.out.println(Arrays.toString(solution(array, command)));
+        System.out.println(Arrays.toString(solution2(array, command)));
     }
 
     /**
@@ -43,5 +44,54 @@ public class pro42748 {
 
 //        return answer.stream().mapToInt(value -> value).toArray();
         return result;
+    }
+
+    public static int[] solution2(int[] array, int[][] commands) {
+        int[] result = new int[commands.length];
+        int i = 0;
+
+        for (int[] command : commands) {
+            int[] copyArray = Arrays.copyOfRange(array, command[0] - 1, Math.min(command[1], array.length));
+
+            quickSort(copyArray);
+            result[i] = copyArray[command[2] - 1];
+            i++;
+        }
+
+        return result;
+    }
+
+    private static void quickSort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+
+    private static void quickSort(int[] array, int start, int end) {
+        int part2 = partition(array, start, end);
+        if(start < part2 - 1) {
+            quickSort(array, start, part2 - 1);
+        }
+        if(part2 < end) {
+            quickSort(array, part2, end);
+        }
+    }
+
+    private static int partition(int[] array, int start, int end) {
+        int pivot = array[(start + end) / 2];
+        while(start <= end) {
+            while(array[start] < pivot) start++;
+            while(array[end] > pivot) end--;
+            if(start <= end) {
+                swap(array, start, end);
+                start++;
+                end--;
+            }
+        }
+        return start;
+    }
+
+    private static void swap(int[] array, int start, int end) {
+        int temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
     }
 }

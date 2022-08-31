@@ -10,6 +10,10 @@ public class pro12916 {
         System.out.println(solution("pPoooyY"));
         System.out.println(solution("pYy"));
         System.out.println(solution(""));
+
+        System.out.println(solution2("pPoooyY"));
+        System.out.println(solution2("pYy"));
+        System.out.println(solution2(""));
     }
 
     public static boolean solution(String str) {
@@ -23,5 +27,10 @@ public class pro12916 {
         }
 
         return pCount == yCount;
+    }
+
+    public static boolean solution2(String str) {
+        str = str.toUpperCase();
+        return str.chars().filter(value -> 'P' == value).count() == str.chars().filter(value -> 'Y' == value).count();
     }
 }

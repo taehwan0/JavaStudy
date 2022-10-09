@@ -1,9 +1,23 @@
 package sort;
 
+import structure.Heap;
+
+import java.util.Arrays;
+
 public class Sort {
 
     public void quickSort(int[] array) {
         quickSort(array, 0, array.length - 1);
+    }
+
+    public void heapSort(int[] array) {
+        Heap heap = new Heap();
+
+        Arrays.stream(array).forEach(heap::insert);
+
+        for(int i = 0; i < array.length; i++) {
+            array[i] = heap.delete();
+        }
     }
 
     private void quickSort(int[] array, int start, int end) {

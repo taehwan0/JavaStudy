@@ -35,8 +35,8 @@ public class pro17681 {
             // String.replaceAll() 쓰는 방법
 //            binary = binary.replaceAll("1", "#");
 //            binary = binary.replaceAll("0", " ");
-//            result[i] = binary;
-//            result[i] = sb.toString();
+            result[i] = binary;
+            result[i] = sb.toString();
 
             sb.delete(0, sb.length());
         }

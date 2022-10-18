@@ -3,3 +3,4 @@ JavaStudy.iml
 out
 src/test.java
 .DS_Store
+src/tutoring/**

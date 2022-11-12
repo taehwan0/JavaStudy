@@ -4,3 +4,4 @@ out
 src/test.java
 .DS_Store
 src/tutoring/**
+src/test/**
